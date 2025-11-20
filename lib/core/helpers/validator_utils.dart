@@ -44,7 +44,6 @@ class ValidatorUtils {
     return null;
   }
 
-  // vlidate password confirm
   static String? validatePasswordConfirm(String? value, String? password) {
     if (value == null || value.trim().isEmpty) {
       return 'Password is required'.tr();
@@ -125,16 +124,3 @@ class ValidatorUtils {
     return RegExp(r'^(?=.{8,})').hasMatch(password);
   }
 }
-
-// {
-  // "This field is required" : "هذا الحقل مطلوب",
-  // "Email is required" : "البريد الالكتروني مطلوب",
-  // "Invalid email address" : "بريد إلكتروني غير صالح",
-  // "Name is required" : "الاسم مطلوب",
-  // "Invalid name" : "اسم غير صالح",
-  // "Password is required" : "كلمة المرور مطلوبة",
-  // "Invalid password" :  "كلمة المرور غير صالحة",
-  // "Phone number is required" : "رقم الهاتف مطلوب",
-  // "Invalid phone number" : "رقم الهاتف غير صالح",
-  // "Password does not match" : "كلمة المرور غير متطابقة",
-// }

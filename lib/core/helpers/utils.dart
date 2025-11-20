@@ -4,10 +4,7 @@ import 'package:fintech_app/core/routing/route_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class Utils {
-  static const String dummyBookAsset = 'assets/images/dummy/book.png';
-
   static bool get isAR {
     return RouteManager.currentContext.locale.languageCode == 'ar';
   }
@@ -47,13 +44,6 @@ class Utils {
 
   static String getAssetDummyJPGPath(String image) {
     return 'assets/dummy/$image.jpg';
-  }
-
-  static String localizedAsset(String baseName) {
-    final lang = RouteManager.currentContext.locale.languageCode;
-    final supportedLangs = ['ar', 'en'];
-    final code = supportedLangs.contains(lang) ? lang : 'ar';
-    return '$code/$baseName';
   }
 
   static double get bottomDevicePadding {
@@ -102,130 +92,4 @@ class Utils {
   static String getFileNameFromURL(String url, String symbol) =>
       url.substring(url.lastIndexOf(symbol) + 1);
 
-  static String formatDate(DateTime? value, {bool reversed = false}) {
-    if (value == null) {
-      return "";
-    }
-    final date =
-        "${value.year}-${value.month.toString().padLeft(2, '0')}-${value.day.toString().padLeft(2, '0')}";
-    if (reversed) {
-      return date.split("-".tr()).reversed.join("-".tr());
-    }
-    return date;
-  }
-
-  static String formatTime(TimeOfDay? value, {bool format24Hours = true}) {
-    if (value == null) {
-      return "";
-    }
-    final hours = value.hour;
-    final minutes = value.minute;
-    if (format24Hours) {
-      return '${(hours).toString().padLeft(2, '0')}:${(minutes).toString().padLeft(2, '0')}';
-    }
-    return '${((hours > 12)
-        ? hours - 12
-        : hours == 0
-        ? 12
-        : hours).toString().padLeft(2, '0')}:${(minutes).toString().padLeft(2, '0')} ${value.period.name.toUpperCase()}';
-  }
-
-  static TimeOfDay convertToTimeOfDay(String value) {
-    List<String> timeParts = value.split(':');
-    int hours = int.parse(timeParts[0]);
-    int minutes = int.parse(timeParts[1].split("".tr())[0]);
-    String period = timeParts[1].split("".tr())[1];
-    if ((period == 'PM' || period == "PM_short".tr()) && hours != 12) {
-      hours += 12;
-    } else if ((period == 'AM' || period == "AM_short".tr()) && hours == 12) {
-      hours = 0;
-    }
-    return TimeOfDay(hour: hours, minute: minutes);
-  }
-
-  // static ThemeData get datePickerTheme {
-  //   return Theme.of(RouteManager.currentContext).copyWith(
-  //     colorScheme: ColorScheme.light(
-  //       primary: context.colors.primary,
-  //       onPrimary: context.colors.secondary,
-  //       onSurface: context.colors.secondary,
-  //     ),
-  //     textTheme: TextTheme(
-  //       displayLarge: TextStyle(
-  //         fontSize: 10,
-  //       ),
-  //       bodyLarge: TextStyle(
-  //         color: context.colors.primary,
-  //       ),
-  //       labelSmall: TextStyle(
-  //         color: context.colors.secondary,
-  //         fontSize: 16,
-  //         fontWeight: FontWeight.w700,
-  //       ),
-  //     ),
-  //     textButtonTheme: TextButtonThemeData(
-  //       style: TextButton.styleFrom(
-  //         foregroundColor: context.colors.primary,
-  //       ),
-  //     ),
-  //   );
-  // }
-
-  static String formatNumberToHumanReadable(int number) {
-    if (number < 1000) {
-      return number.toString();
-    } else if (number < 1000000) {
-      return (number / 1000)
-              .toStringAsFixed(1)
-              .replaceAll(RegExp(r'\.0$'), '') +
-          'k_for_thousands'.tr();
-    } else if (number < 1000000000) {
-      return (number / 1000000)
-              .toStringAsFixed(1)
-              .replaceAll(RegExp(r'\.0$'), '') +
-          'm_for_millions'.tr();
-    } else if (number < 1000000000000) {
-      return (number / 1000000000)
-              .toStringAsFixed(1)
-              .replaceAll(RegExp(r'\.0$'), '') +
-          'b_for_billions'.tr();
-    } else {
-      return (number / 1000000000000)
-              .toStringAsFixed(1)
-              .replaceAll(RegExp(r'\.0$'), '') +
-          't_for_trillions'.tr();
-    }
-  }
-
-  static String formatDuration(Duration? duration) {
-    if (duration == null) {
-      return "--:--:--";
-    }
-    // int hours = duration.inHours % 24;
-    int minutes = duration.inMinutes % 60;
-    int seconds = duration.inSeconds % 60;
-    return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
-  }
-
-  static List<String> get weekdays => isAR ? weekdaysAR : weekdaysEN;
-
-  static List<String> weekdaysAR = [
-    "Saturday".tr(),
-    "Sunday".tr(),
-    "Monday".tr(),
-    "Tuesday".tr(),
-    "Wednesday".tr(),
-    "Thursday".tr(),
-    "Friday".tr(),
-  ];
-
-  static List<String> weekdaysEN = [
-    'Saturday',
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-  ];
 }
