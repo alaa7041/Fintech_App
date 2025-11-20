@@ -13,14 +13,3 @@ String langCacheKey = "lang";
 String countryCacheKey = "country";
 
 String currentLanguage = 'ar';
-
-
-class SharedPrefsKeys {
-  static const String notShowOnboarding = "notShowOnboarding";
-  static const String phoneNumber = "phoneNumber";
-  static const String userName = "userName";
-
-  static const String userToken = "userToken";
-  static const String deviceId = "deviceId";
-  static const String lang = "lang";
-}
