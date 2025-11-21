@@ -1,20 +1,20 @@
+import 'package:bloc/bloc.dart';
+import 'package:fintech_app/core/helpers/bloc_observer.dart';
+import 'package:fintech_app/my_app.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-void main() {
-  runApp(const MainApp());
-}
+import 'core/di/dependency_injection.dart';
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await setupGetIt();
+    await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
-  }
+  Bloc.observer = MyBlocObserver();
+  
+  runApp(const MyApp());
 }
