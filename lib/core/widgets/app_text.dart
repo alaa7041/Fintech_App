@@ -58,7 +58,7 @@ class AppText extends StatelessWidget {
           textScaler: const TextScaler.linear(1),
           style: style ??
               TextStyle(
-                color: color ?? ColorsManager.textColor,
+                color: color ?? LightColors.textColor,
                 fontSize: fontSize,
                 height: height != null ? height! / fontSize! : null,
                 decoration: decoration ?? TextDecoration.none,

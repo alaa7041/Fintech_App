@@ -13,3 +13,4 @@ String langCacheKey = "lang";
 String countryCacheKey = "country";
 
 String currentLanguage = 'ar';
+

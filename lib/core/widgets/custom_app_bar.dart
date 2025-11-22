@@ -1,13 +1,10 @@
-import 'dart:math' as math;
-
 import 'package:fintech_app/core/global/dimensions.dart';
 import 'package:fintech_app/core/routing/route_manager.dart';
+import 'package:fintech_app/core/theming/app_colors_extension.dart';
 import 'package:fintech_app/core/theming/colors_manager.dart';
 import 'package:fintech_app/core/theming/font_weights_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import '../helpers/utils.dart';
 import 'app_text.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -24,6 +21,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).extension<AppColorsExtension>()!;
+
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
@@ -31,14 +30,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       title: AppText(
         title: title,
-        style: TextStyle(fontSize: 24.font, fontWeight: FontWeightsHelper.bold),
+        style: TextStyle(fontSize: 24.font, fontWeight: FontWeightsHelper.bold,color: colors.primaryTextColor),
       ),
       leading: withArrow
           ? GestureDetector(
               onTap: () => RouteManager.pop(),
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
-                child: Icon(Icons.arrow_back),
+                child: Icon(Icons.arrow_back, size: 16.font,color: colors.primaryTextColor,),
               ),
             )
           : SizedBox.shrink(),
@@ -46,5 +45,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(60.h);
+  Size get preferredSize => Size.fromHeight(50.h);
 }
