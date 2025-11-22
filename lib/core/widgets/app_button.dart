@@ -60,7 +60,7 @@ class AppButton extends StatelessWidget {
             ? Center(
                 child: Padding(
                   padding: const EdgeInsets.all(8),
-                  child: LoadingAnimationWidget.threeArchedCircle(
+                  child: LoadingAnimationWidget.progressiveDots(
                     color: loaderColor ?? Colors.white,
                     size: 50,
                   ),
