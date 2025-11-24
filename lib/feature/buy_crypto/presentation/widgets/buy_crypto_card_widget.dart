@@ -1,4 +1,4 @@
-import 'package:fintech_app/core/global/dimensions.dart'; 
+import 'package:fintech_app/core/global/dimensions.dart';
 import 'package:fintech_app/core/theming/app_colors_extension.dart';
 import 'package:fintech_app/core/theming/font_weights_helper.dart';
 import 'package:fintech_app/core/widgets/app_text.dart';
@@ -24,7 +24,7 @@ class BuyCryptoCardWdiget extends StatelessWidget {
             title: "You pay",
             subTitle: "\$1,800.00",
             moneyType: "USD",
-            icon: Icons.money_off,
+            image: "dollar",
           ),
           const SizedBox(height: 10),
           BuyCryptoDviderWidget(),
@@ -33,7 +33,7 @@ class BuyCryptoCardWdiget extends StatelessWidget {
             title: "You Receive",
             subTitle: "0.9876",
             moneyType: "ETH",
-            icon: Icons.money_off,
+            image: "eth",
           ),
           SizedBox(height: 40.height),
           Row(

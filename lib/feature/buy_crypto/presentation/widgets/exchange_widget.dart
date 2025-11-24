@@ -1,8 +1,10 @@
-import 'package:fintech_app/core/global/dimensions.dart'; 
+import 'package:fintech_app/core/global/dimensions.dart';
+import 'package:fintech_app/core/helpers/utils.dart';
 import 'package:fintech_app/core/theming/app_colors_extension.dart';
 import 'package:fintech_app/core/theming/font_weights_helper.dart';
 import 'package:fintech_app/core/widgets/app_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ExchangeWidget extends StatelessWidget {
   const ExchangeWidget({super.key});
@@ -29,10 +31,8 @@ class ExchangeWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8.radius),
                     color: colors.orange,
                   ),
-                  child: Icon(
-                    Icons.info_outline,
-                    color: colors.btnTextColor,
-                    size: 20,
+                  child: SvgPicture.asset(
+                    Utils.getImagesSVGPath("dollar_circle"),
                   ),
                 ),
                 SizedBox(width: 16.width),

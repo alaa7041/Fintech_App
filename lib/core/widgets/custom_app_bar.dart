@@ -29,14 +29,22 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       title: AppText(
         title: title,
-        style: TextStyle(fontSize: 24.font, fontWeight: FontWeightsHelper.bold,color: colors.primaryTextColor),
+        style: TextStyle(
+          fontSize: 24.font,
+          fontWeight: FontWeightsHelper.bold,
+          color: colors.primaryTextColor,
+        ),
       ),
       leading: withArrow
           ? GestureDetector(
               onTap: () => RouteManager.pop(),
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
-                child: Icon(Icons.arrow_back, size: 16.font,color: colors.primaryTextColor,),
+                child: Icon(
+                  Icons.arrow_back,
+                  size: 26.font,
+                  color: colors.primaryTextColor,
+                ),
               ),
             )
           : SizedBox.shrink(),

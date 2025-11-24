@@ -1,8 +1,10 @@
 import 'package:fintech_app/core/global/dimensions.dart';
+import 'package:fintech_app/core/helpers/utils.dart';
 import 'package:fintech_app/core/theming/app_colors_extension.dart';
 import 'package:fintech_app/core/theming/font_weights_helper.dart';
 import 'package:fintech_app/core/widgets/app_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class BuyCryptoOptionWidget extends StatelessWidget {
   const BuyCryptoOptionWidget({
@@ -10,11 +12,11 @@ class BuyCryptoOptionWidget extends StatelessWidget {
     required this.title,
     required this.subTitle,
     required this.moneyType,
-    required this.icon,
+    required this.image,
   });
 
   final String title, subTitle, moneyType;
-  final IconData icon;
+  final String image;
   @override
   Widget build(BuildContext context) {
     final color = Theme.of(context).extension<AppColorsExtension>()!;
@@ -46,7 +48,7 @@ class BuyCryptoOptionWidget extends StatelessWidget {
             CircleAvatar(
               radius: 14,
               backgroundColor: color.bgColor,
-              child: Center(child: Icon(icon, color: color.primary)),
+              child: SvgPicture.asset(Utils.getImagesSVGPath(image)),
             ),
 
             SizedBox(width: 5.width),
