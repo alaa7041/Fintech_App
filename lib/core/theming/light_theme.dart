@@ -17,6 +17,7 @@ class AppLightTheme {
     btnTextColor: LightColors.btnTextColor,
     primaryTextColor: LightColors.primaryTextColor,
     secondaryTextColor: LightColors.secondaryTextColor,
+    orange: LightColors.orange, 
   )
 ]
 

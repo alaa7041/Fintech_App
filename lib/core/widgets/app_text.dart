@@ -1,4 +1,3 @@
-import 'package:fintech_app/core/helpers/utils.dart';
 import 'package:fintech_app/core/theming/colors_manager.dart';
 import 'package:flutter/material.dart';
 
@@ -56,7 +55,8 @@ class AppText extends StatelessWidget {
           key: key,
           textAlign: textAlign ?? TextAlign.start,
           textScaler: const TextScaler.linear(1),
-          style: style ??
+          style:
+              style ??
               TextStyle(
                 color: color ?? LightColors.textColor,
                 fontSize: fontSize,
@@ -66,10 +66,10 @@ class AppText extends StatelessWidget {
                 decorationThickness: 2,
                 decorationColor: color,
                 fontWeight: fontWeight,
-                fontFamily: fontFamily?.id ??
-                    (Utils.isAR
-                        ? AppFontFamily.alexandriaArabic.id
-                        : AppFontFamily.montserrat.id),
+                // fontFamily: fontFamily?.id ??
+                //     (Utils.isAR
+                //         ? AppFontFamily.alexandriaArabic.id
+                //         : AppFontFamily.montserrat.id),
               ),
           overflow: overflow,
           maxLines: maxLines,

@@ -10,6 +10,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
   final Color btnTextColor;
   final Color primaryTextColor;
   final Color secondaryTextColor;
+  final Color orange;
 
   const AppColorsExtension({
     required this.primary,
@@ -19,6 +20,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     required this.btnTextColor,
     required this.primaryTextColor,
     required this.secondaryTextColor,
+    required this.orange,
   });
 
   @override
@@ -30,6 +32,8 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     Color? btnTextColor,
     Color? primaryTextColor,
     Color? secondaryTextColor,
+    Color? orange,
+    Color? offWhite,
   }) {
     return AppColorsExtension(
       primary: primary ?? this.primary,
@@ -39,12 +43,12 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       btnTextColor: btnTextColor ?? this.btnTextColor,
       primaryTextColor: primaryTextColor ?? this.primaryTextColor,
       secondaryTextColor: secondaryTextColor ?? this.secondaryTextColor,
+      orange: orange ?? this.orange,
     );
   }
 
   @override
-  AppColorsExtension lerp(
-      ThemeExtension<AppColorsExtension>? other, double t) {
+  AppColorsExtension lerp(ThemeExtension<AppColorsExtension>? other, double t) {
     if (other is! AppColorsExtension) return this;
 
     return AppColorsExtension(
@@ -53,10 +57,17 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       textColor: Color.lerp(textColor, other.textColor, t)!,
       grey: Color.lerp(grey, other.grey, t)!,
       btnTextColor: Color.lerp(btnTextColor, other.btnTextColor, t)!,
-      primaryTextColor:
-          Color.lerp(primaryTextColor, other.primaryTextColor, t)!,
-      secondaryTextColor:
-          Color.lerp(secondaryTextColor, other.secondaryTextColor, t)!,
+      primaryTextColor: Color.lerp(
+        primaryTextColor,
+        other.primaryTextColor,
+        t,
+      )!,
+      secondaryTextColor: Color.lerp(
+        secondaryTextColor,
+        other.secondaryTextColor,
+        t,
+      )!,
+      orange: Color.lerp(orange, other.orange, t)!,
     );
   }
 }

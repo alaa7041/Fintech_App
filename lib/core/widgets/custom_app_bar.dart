@@ -1,7 +1,6 @@
 import 'package:fintech_app/core/global/dimensions.dart';
 import 'package:fintech_app/core/routing/route_manager.dart';
 import 'package:fintech_app/core/theming/app_colors_extension.dart';
-import 'package:fintech_app/core/theming/colors_manager.dart';
 import 'package:fintech_app/core/theming/font_weights_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

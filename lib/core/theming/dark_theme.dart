@@ -9,16 +9,16 @@ class AppDarkTheme {
     scaffoldBackgroundColor: DarkColors.bgColor,
 
     extensions: [
-  AppColorsExtension(
-    primary: DarkColors.primary,
-    bgColor: DarkColors.bgColor,
-    textColor: DarkColors.textColor,
-    grey: DarkColors.grey,
-    btnTextColor: DarkColors.btnTextColor,
-    primaryTextColor: DarkColors.primaryTextColor,
-    secondaryTextColor: DarkColors.secondaryTextColor,
-  )
-]
-
+      AppColorsExtension(
+        primary: DarkColors.primary,
+        bgColor: DarkColors.bgColor,
+        textColor: DarkColors.textColor,
+        grey: DarkColors.grey,
+        btnTextColor: DarkColors.btnTextColor,
+        primaryTextColor: DarkColors.primaryTextColor,
+        secondaryTextColor: DarkColors.secondaryTextColor,
+        orange: DarkColors.orange,
+      ),
+    ],
   );
 }
