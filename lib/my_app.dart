@@ -1,6 +1,6 @@
 import 'package:fintech_app/core/theming/app_theme.dart';
 import 'package:fintech_app/core/theming/theme_notifier.dart';
-import 'package:fintech_app/feature/buy_crypto/presentation/screens/buy_crypto_screen.dart';
+import 'package:fintech_app/feature/splash/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
                 darkTheme: AppTheme.dark,
 
                 themeMode: ThemeNotifier.themeMode.value,
-                home: BuyCryptoScreen(),
+                home: SplashScreen(),
               );
             },
           );
