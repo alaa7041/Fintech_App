@@ -1,6 +1,4 @@
 part of '../home_screen.dart';
-
-// still to be implemented 💤 😴
 class _HomeBanner extends StatelessWidget {
   const _HomeBanner();
 

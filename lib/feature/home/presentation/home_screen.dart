@@ -23,6 +23,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             _HomeBanner(),
+            /// TODO: Other home screen widgets would go here
           ],
         ),
       ),
