@@ -51,6 +51,8 @@ flutter:
     - assets/images/
     - assets/dummy/
     - assets/icons/
+    - assets/
+    - assets/fonts/
 
   fonts:
   - family: Lato
