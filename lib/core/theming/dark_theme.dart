@@ -1,5 +1,6 @@
 import 'package:fintech_app/core/theming/colors_manager.dart';
 import 'package:flutter/material.dart';
+
 import 'app_colors_extension.dart';
 
 class AppDarkTheme {
@@ -9,16 +10,21 @@ class AppDarkTheme {
     scaffoldBackgroundColor: DarkColors.bgColor,
 
     extensions: [
-  AppColorsExtension(
-    primary: DarkColors.primary,
-    bgColor: DarkColors.bgColor,
-    textColor: DarkColors.textColor,
-    grey: DarkColors.grey,
-    btnTextColor: DarkColors.btnTextColor,
-    primaryTextColor: DarkColors.primaryTextColor,
-    secondaryTextColor: DarkColors.secondaryTextColor,
-  )
-]
-
+      AppColorsExtension(
+        primary: DarkColors.primary,
+        bgColor: DarkColors.bgColor,
+        textColor: DarkColors.textColor,
+        grey: DarkColors.grey,
+        btnTextColor: DarkColors.btnTextColor,
+        primaryTextColor: DarkColors.primaryTextColor,
+        secondaryTextColor: DarkColors.secondaryTextColor,
+        cryptoBTC: DarkColors.cryptoBTC,
+        cryptoETH: DarkColors.cryptoETH,
+        cryptoLTC: DarkColors.cryptoLTC,
+        profitGreen: DarkColors.profitGreen,
+        lossRed: DarkColors.lossRed,
+        cardBackground: DarkColors.cardBackground,
+      ),
+    ],
   );
 }

@@ -1,7 +1,9 @@
-import 'package:bloc/bloc.dart';
 import 'package:fintech_app/feature/home/presentation/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../core/widgets/theme_screen_demo.dart';
+import '../../portfolio/presentation/screens/portfolio_screen.dart';
 
 part 'nav_bar_state.dart';
 
@@ -12,7 +14,12 @@ class NavBarCubit extends Cubit<NavBarState> {
 
   int currentViewIndex = 0;
 
-  List<Widget> screens = [HomeScreen(), Scaffold(), Scaffold(), Scaffold()];
+  List<Widget> screens = [
+    HomeScreen(),
+    Scaffold(),
+    ThemeScreenDemo(PortfolioScreen()),
+    Scaffold(),
+  ];
 
   void changeView(int index) {
     if (currentViewIndex == index) {
