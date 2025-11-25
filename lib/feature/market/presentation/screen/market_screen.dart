@@ -1,12 +1,9 @@
 import 'package:fintech_app/core/widgets/custom_app_bar.dart';
-import 'package:fintech_app/features/market/presentation/screen/widgets/build_search.dart';
-import 'package:fintech_app/features/market/presentation/screen/widgets/category_section.dart';
-import 'package:fintech_app/features/market/presentation/screen/widgets/coin_section.dart';
+import 'package:fintech_app/feature/market/presentation/screen/widgets/build_search.dart';
+import 'package:fintech_app/feature/market/presentation/screen/widgets/category_section.dart';
+import 'package:fintech_app/feature/market/presentation/screen/widgets/coin_section.dart';
 import 'package:fintech_app/generated/assets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
-import '../../../../core/global/dimensions.dart';
 import '../../../../core/theming/app_colors_extension.dart';
 import '../../data/models/coin_model.dart';
 

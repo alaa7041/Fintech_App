@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/helpers/constants.dart';
 import 'core/routing/route_manager.dart';
-import 'features/market/presentation/screen/market_screen.dart';
+import 'feature/market/presentation/screen/market_screen.dart';
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
