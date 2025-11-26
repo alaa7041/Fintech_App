@@ -17,8 +17,14 @@ class AppLightTheme {
     btnTextColor: LightColors.btnTextColor,
     primaryTextColor: LightColors.primaryTextColor,
     secondaryTextColor: LightColors.secondaryTextColor,
-    orange: LightColors.orange, 
-  )
+    orange: LightColors.orange,
+    cryptoBTC:LightColors.cryptoBTC,
+    cryptoETH: LightColors.cryptoETH,
+    cryptoLTC: LightColors.cryptoLTC,
+    profitGreen: LightColors.profitGreen,
+    lossRed: LightColors.lossRed,
+    cardBackground: LightColors.cardBackground,
+  ),
 ]
 
   );

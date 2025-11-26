@@ -18,6 +18,12 @@ class AppDarkTheme {
         primaryTextColor: DarkColors.primaryTextColor,
         secondaryTextColor: DarkColors.secondaryTextColor,
         orange: DarkColors.orange,
+        cryptoBTC: DarkColors.cryptoBTC,
+        cryptoETH: DarkColors.cryptoETH,
+        cryptoLTC: DarkColors.cryptoLTC,
+        profitGreen: DarkColors.profitGreen,
+        lossRed: DarkColors.lossRed,
+        cardBackground: DarkColors.cardBackground,
       ),
     ],
   );

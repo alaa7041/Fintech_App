@@ -21,6 +21,18 @@ class Assets {
   static const String iconsSearchNormal = 'assets/icons/search-normal.svg';
   static const String iconsSetting = 'assets/icons/setting.svg';
   static const String imagesBitcoin = 'assets/images/bitcoin.png';
+  static const String imagesCard = 'assets/images/card.png';
+  static const String imagesDollar = 'assets/images/dollar.svg';
+  static const String imagesDollarCircle = 'assets/images/dollar_circle.svg';
+  static const String imagesEth = 'assets/images/eth.svg';
   static const String imagesHomeBanner = 'assets/images/home_banner.png';
+  static const String imagesLogo = 'assets/images/logo.svg';
+  static const String imagesMaster = 'assets/images/master.png';
+  static const String imagesOnboarding1 = 'assets/images/onboarding1.png';
+  static const String imagesOnboarding2 = 'assets/images/onboarding2.png';
+  static const String imagesOnboarding3 = 'assets/images/onboarding3.png';
+  static const String imagesOnboarding4 = 'assets/images/onboarding4.png';
+  static const String imagesPay = 'assets/images/pay.png';
+  static const String imagesVisa = 'assets/images/visa.png';
 
 }

@@ -11,12 +11,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final bool withArrow;
   final bool? withCustomIcon;
+  final Color? isCenterTitle;
 
   const CustomAppBar({
     super.key,
     required this.title,
     this.withArrow = false,
     this.withCustomIcon,
+    this.isCenterTitle,
   });
 
   @override

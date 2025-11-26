@@ -10,6 +10,21 @@ class LightColors {
   static const Color btnTextColor = Colors.white;
   static const Color primaryTextColor = Color(0xff1D3A70);
   static const Color secondaryTextColor = Color(0xff152C07);
+  static const Color orange = Color(0xffF56C2A);
+  static const Color cryptoBTC = Color(
+    0xff7C5DFF,
+  ); // Lighter purple for Bitcoin
+  static const Color cryptoETH = Color(0xff00CFFF); // Bright cyan for Ethereum
+  static const Color cryptoLTC = Color(
+    0xffFF5A5A,
+  ); // Lighter coral for Litecoin
+  // Profit/Loss colors
+  static const Color profitGreen = Color(0xff3EDD81);
+  static const Color lossRed = Color(0xffF75C4C);
+  // Card background
+  static const Color cardBackground = Colors.white;
+
+
 
 }
 
@@ -22,4 +37,19 @@ class DarkColors {
   static const Color btnTextColor = Color(0xff0D0D0D);
   static const Color primaryTextColor = Colors.white;
   static const Color secondaryTextColor = Color(0xffE1F8D3);
+  static const Color orange = Color(0xffF56C2A);
+  static const Color cryptoBTC = Color(
+    0xff9B8CFF,
+  ); // Lighter purple for Bitcoin
+  static const Color cryptoETH = Color(0xff00E5FF); // Bright cyan for Ethereum
+  static const Color cryptoLTC = Color(
+    0xffFF7B7B,
+  ); // Lighter coral for Litecoin
+
+  // Profit/Loss colors
+  static const Color profitGreen = Color(0xff3EDD81);
+  static const Color lossRed = Color(0xffF75C4C);
+
+  // Card background
+  static const Color cardBackground = Color(0xff1E1E1E);
 }

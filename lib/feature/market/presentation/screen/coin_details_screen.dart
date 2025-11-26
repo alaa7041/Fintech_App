@@ -31,7 +31,7 @@ class _CoinDetailsScreenState extends State<CoinDetailsScreen> {
     return Scaffold(
       appBar: CustomAppBar(
         title: 'Coin Details',
-        isCenterTitle: true,
+
         withArrow: true,
       ),
 
