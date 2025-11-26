@@ -10,14 +10,13 @@ import 'app_text.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final bool withArrow;
-
-  final bool? isCenterTitle;
+  final bool? withCustomIcon;
 
   const CustomAppBar({
     super.key,
     required this.title,
     this.withArrow = false,
-    this.isCenterTitle=false,
+    this.withCustomIcon,
   });
 
   @override
@@ -27,19 +26,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
-      centerTitle: isCenterTitle,
+      centerTitle: true,
       automaticallyImplyLeading: false,
       title: AppText(
         title: title,
         style: TextStyle(fontSize: 24.font, fontWeight: FontWeightsHelper.bold,color: colors.primaryTextColor),
       ),
-      leadingWidth: withArrow ? 40.w : 0,
       leading: withArrow
           ? GestureDetector(
               onTap: () => RouteManager.pop(),
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
-                child: Icon(Icons.arrow_back_ios, size: 24.font,color: colors.primaryTextColor,),
+                child: Icon(Icons.arrow_back, size: 16.font,color: colors.primaryTextColor,),
               ),
             )
           : SizedBox.shrink(),

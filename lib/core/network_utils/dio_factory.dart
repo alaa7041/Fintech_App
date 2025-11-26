@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:fintech_app/core/helpers/shared_prefernce_helper.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import '../helpers/utils.dart';
-import '../routing/route_manager.dart';
 
 class DioFactory {
   DioFactory._();
