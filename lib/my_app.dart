@@ -1,14 +1,11 @@
 import 'package:fintech_app/core/theming/app_theme.dart';
 import 'package:fintech_app/core/theming/theme_notifier.dart';
-import 'package:fintech_app/core/widgets/app_button.dart';
-import 'package:fintech_app/core/widgets/switch_theme_button.dart';
-import 'package:fintech_app/feature/nav_bar/presentation/nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'core/helpers/constants.dart';
 import 'core/routing/route_manager.dart';
-import 'core/widgets/custom_app_bar.dart';
+import 'feature/market/presentation/screen/market_screen.dart';
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -33,7 +30,7 @@ class MyApp extends StatelessWidget {
                 darkTheme: AppTheme.dark,
 
                 themeMode: ThemeNotifier.themeMode.value,
-                home: NavBar(),
+                home: MarketScreen(),
               );
             },
           );
