@@ -1,17 +1,20 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fintech_app/core/global/dimensions.dart';
 import 'package:fintech_app/core/routing/route_manager.dart';
+import 'package:fintech_app/core/theming/app_colors_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Utils {
-  static bool get isAR {
-    return RouteManager.currentContext.locale.languageCode == 'ar';
-  }
+ 
 
   static Color getColor(String color) {
     final myColor = "0xff${color.replaceFirst("#", "")}".tr();
     return Color(int.parse(myColor));
+  }
+
+   static isDarkMode(context) {
+    return Theme.of(context).brightness == Brightness.dark;
   }
 
   static String getAssetPNGPath(String image) {

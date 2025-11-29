@@ -66,10 +66,7 @@ class AppText extends StatelessWidget {
                 decorationThickness: 2,
                 decorationColor: color,
                 fontWeight: fontWeight,
-                fontFamily: fontFamily?.id ??
-                    (Utils.isAR
-                        ? AppFontFamily.alexandriaArabic.id
-                        : AppFontFamily.montserrat.id),
+              
               ),
           overflow: overflow,
           maxLines: maxLines,

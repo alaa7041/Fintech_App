@@ -75,7 +75,7 @@ class DioFactory {
     dio?.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) async {
-          options.headers['Accept-Language'] = Utils.isAR ? 'ar' : 'en';
+          options.headers['Accept-Language'] = 'en';
           final requiresAuth = options.extra['auth'] != false;
           if (requiresAuth) {
             final token = await SharedPrefHelper.getToken();
