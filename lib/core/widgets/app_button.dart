@@ -1,11 +1,8 @@
-
 import 'package:fintech_app/core/global/dimensions.dart';
 import 'package:fintech_app/core/theming/app_colors_extension.dart';
-import 'package:fintech_app/core/theming/colors_manager.dart';
 import 'package:fintech_app/core/theming/font_weights_helper.dart';
 import 'package:fintech_app/core/widgets/app_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class AppButton extends StatelessWidget {
@@ -31,7 +28,7 @@ class AppButton extends StatelessWidget {
     this.height,
     this.onPressed,
     this.width,
-    this.radius = 8,
+    this.radius = 31,
     this.boxBorder,
     this.color,
     this.textColor,
@@ -51,13 +48,14 @@ class AppButton extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        height: height ?? 40.height,
+        height: height ?? 50.height,
         width: width ?? double.infinity,
         padding: padding,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(radius ?? 31.radius),
-            border: boxBorder,
-            color: color ?? colors.primary),
+          borderRadius: BorderRadius.circular(radius ?? 31.radius),
+          border: boxBorder,
+          color: color ?? colors.primary,
+        ),
         child: isLoading
             ? Center(
                 child: Padding(
@@ -69,18 +67,20 @@ class AppButton extends StatelessWidget {
                 ),
               )
             : Center(
-                child: widget ??
+                child:
+                    widget ??
                     AppText(
                       title: text,
                       color: textColor ?? colors.btnTextColor,
                       fontSize: fontSize ?? 18.font,
                       fontWeight: fontWeight ?? FontWeightsHelper.bold,
-                      style: textStyle ??
+                      style:
+                          textStyle ??
                           TextStyle(
                             color: textColor ?? colors.btnTextColor,
                             fontSize: fontSize ?? 18.font,
                             fontWeight: fontWeight ?? FontWeightsHelper.bold,
-                            overflow: TextOverflow.visible
+                            overflow: TextOverflow.visible,
                           ),
                       overflow: TextOverflow.visible,
                       textAlign: textAlign ?? TextAlign.center,
