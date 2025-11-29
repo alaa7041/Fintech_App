@@ -1,9 +1,33 @@
 part of '../login_screen.dart';
+
 class _LoginForm extends StatelessWidget {
   const _LoginForm();
 
   @override
   Widget build(BuildContext context) {
-    return Form(child: Column());
+    return Form(
+      child: Column(children: [
+      
+        AppTextFormField(
+          hintText: "Email",
+          prefixIcon: Padding(
+            padding: EdgeInsets.fromLTRB(24, 16, 12, 16),
+            child: Icon(Icons.email_outlined,
+            color: context.colors.grey,
+            ),
+          ),
+        ),
+        Gap(16),
+        AppTextFormField(
+          hintText: "Password",
+          prefixIcon: Padding(
+            padding: EdgeInsets.fromLTRB(24, 16, 12, 16),
+            child: Icon(Icons.lock_outline,color: context.colors.grey,),
+          ),
+        ),
+      
+        
+      ]),
+    );
   }
 }
