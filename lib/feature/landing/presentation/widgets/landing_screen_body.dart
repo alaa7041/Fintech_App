@@ -1,9 +1,12 @@
 import 'package:fintech_app/core/global/dimensions.dart';
 import 'package:fintech_app/core/helpers/utils.dart';
+import 'package:fintech_app/core/routing/route_manager.dart';
 import 'package:fintech_app/core/theming/app_colors_extension.dart';
 import 'package:fintech_app/core/theming/font_weights_helper.dart';
 import 'package:fintech_app/core/widgets/app_button.dart';
 import 'package:fintech_app/core/widgets/app_text.dart';
+import 'package:fintech_app/feature/auth/login/presentation/login_screen.dart';
+import 'package:fintech_app/feature/auth/register/presentation/register_screen.dart';
 import 'package:flutter/material.dart';
 
 class LandingScreenBody extends StatelessWidget {
@@ -27,12 +30,16 @@ class LandingScreenBody extends StatelessWidget {
             fontWeight: FontWeightsHelper.bold,
           ),
           SizedBox(height: 60.height),
-          AppButton(text: "Login", radius: 31.radius, onPressed: () {}),
+          AppButton(
+            text: "Login",
+            radius: 31.radius,
+            onPressed: () => RouteManager.navigateTo(LoginScreen()),
+          ),
           SizedBox(height: 18.height),
           AppButton(
             text: "Register",
             radius: 31.radius,
-            onPressed: () {},
+            onPressed: () => RouteManager.navigateTo(RegisterScreen()),
             color: colors.btnTextColor,
             textColor: colors.primary,
             boxBorder: Border.all(color: colors.primary, width: 2),

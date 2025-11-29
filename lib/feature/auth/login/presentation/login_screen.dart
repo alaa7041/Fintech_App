@@ -13,6 +13,7 @@ import 'package:fintech_app/feature/auth/login/presentation/face_id_screen.dart'
 import 'package:fintech_app/feature/auth/login/presentation/fingrprint_screen.dart';
 import 'package:fintech_app/feature/auth/login/presentation/utils/inline_text.dart';
 import 'package:fintech_app/feature/auth/register/presentation/register_screen.dart';
+import 'package:fintech_app/feature/nav_bar/presentation/nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';

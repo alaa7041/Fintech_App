@@ -7,7 +7,10 @@ class _LoginButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        AppButton(text: "Login", onPressed: () {}),
+        AppButton(
+          text: "Login",
+          onPressed: () => RouteManager.navigateTo(NavBar(initialViewIndex: 0)),
+        ),
         Gap(10),
         AppButton(
           text: "",

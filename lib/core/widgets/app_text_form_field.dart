@@ -1,9 +1,8 @@
 import 'package:fintech_app/core/global/dimensions.dart';
 import 'package:fintech_app/core/theming/app_colors.dart';
-import 'package:fintech_app/core/theming/app_colors_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'app_text.dart';
 
 class AppTextFormField extends StatefulWidget {
@@ -87,13 +86,19 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
         focusedBorder:
             widget.focusedBorder ??
             OutlineInputBorder(
-              borderSide: BorderSide(color: context.colors.primary, width: 1.width),
+              borderSide: BorderSide(
+                color: context.colors.primary,
+                width: 1.width,
+              ),
               borderRadius: BorderRadius.circular(8.r),
             ),
         enabledBorder:
             widget.enabledBorder ??
             OutlineInputBorder(
-              borderSide: BorderSide(color: context.colors.primary, width: 1.width),
+              borderSide: BorderSide(
+                color: context.colors.primary,
+                width: 1.width,
+              ),
               borderRadius: BorderRadius.circular(8.r),
             ),
         errorBorder: OutlineInputBorder(
@@ -116,8 +121,8 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
             ? IconButton(
                 icon: Icon(
                   isPasswordHidden
-                      ? FontAwesomeIcons.eyeSlash
-                      : FontAwesomeIcons.eye,
+                      ? Icons.visibility_off_outlined
+                      : Icons.visibility,
                   color: context.colors.grey,
                 ),
                 onPressed: () {
