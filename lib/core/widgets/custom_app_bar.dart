@@ -11,14 +11,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final bool withArrow;
   final bool? withCustomIcon;
-  final bool? isCenterTitle;
+  final Color? isCenterTitle;
 
   const CustomAppBar({
     super.key,
     required this.title,
     this.withArrow = false,
-    this.isCenterTitle=false,
     this.withCustomIcon,
+    this.isCenterTitle,
   });
 
   @override
@@ -28,13 +28,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
-      centerTitle: isCenterTitle,
+      centerTitle: true,
       automaticallyImplyLeading: false,
       title: AppText(
         title: title,
         style: TextStyle(fontSize: 24.font, fontWeight: FontWeightsHelper.bold,color: colors.primaryTextColor),
       ),
-      leadingWidth: withArrow ? 40.w : 0,
       leading: withArrow
           ? GestureDetector(
               onTap: () => RouteManager.pop(),

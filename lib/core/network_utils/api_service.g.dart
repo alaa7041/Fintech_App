@@ -13,6 +13,7 @@ class _ApiService implements ApiService {
     baseUrl ??= 'https://api.rafeeq-alderasa.tharadtech.com/api/';
   }
 
+  // ignore: unused_field
   final Dio _dio;
 
   String? baseUrl;

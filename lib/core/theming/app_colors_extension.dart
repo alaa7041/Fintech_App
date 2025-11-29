@@ -10,18 +10,16 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
   final Color btnTextColor;
   final Color primaryTextColor;
   final Color secondaryTextColor;
-
-  // Crypto colors
-  final Color cryptoBTC;
-  final Color cryptoETH;
-  final Color cryptoLTC;
-
+  final Color orange;
+  final Color cryptoBTC  ;// Lighter purple for Bitcoin
+  final Color cryptoETH ; // Bright cyan for Ethereum
+  final Color cryptoLTC ; // Lighter coral for Litecoin
   // Profit/Loss colors
-  final Color profitGreen;
-  final Color lossRed;
-
+  final Color profitGreen ;
+  final Color lossRed ;
   // Card background
-  final Color cardBackground;
+  final Color cardBackground ;
+
 
   const AppColorsExtension({
     required this.primary,
@@ -31,12 +29,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     required this.btnTextColor,
     required this.primaryTextColor,
     required this.secondaryTextColor,
-    required this.cryptoBTC,
-    required this.cryptoETH,
-    required this.cryptoLTC,
-    required this.profitGreen,
-    required this.lossRed,
-    required this.cardBackground,
+    required this.orange, required this.cryptoBTC, required this.cryptoETH, required this.cryptoLTC, required this.profitGreen, required this.lossRed, required this.cardBackground,
   });
 
   @override
@@ -48,12 +41,6 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     Color? btnTextColor,
     Color? primaryTextColor,
     Color? secondaryTextColor,
-    Color? cryptoBTC,
-    Color? cryptoETH,
-    Color? cryptoLTC,
-    Color? profitGreen,
-    Color? lossRed,
-    Color? cardBackground,
   }) {
     return AppColorsExtension(
       primary: primary ?? this.primary,
@@ -63,13 +50,14 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       btnTextColor: btnTextColor ?? this.btnTextColor,
       primaryTextColor: primaryTextColor ?? this.primaryTextColor,
       secondaryTextColor: secondaryTextColor ?? this.secondaryTextColor,
-      cryptoBTC: cryptoBTC ?? this.cryptoBTC,
-      cryptoETH: cryptoETH ?? this.cryptoETH,
-      cryptoLTC: cryptoLTC ?? this.cryptoLTC,
-      profitGreen: profitGreen ?? this.profitGreen,
-      lossRed: lossRed ?? this.lossRed,
-      cardBackground: cardBackground ?? this.cardBackground,
-    );
+      orange: orange,
+      cryptoBTC: cryptoBTC,
+      cryptoETH: cryptoETH,
+      cryptoLTC: cryptoLTC,
+      profitGreen: profitGreen,
+      lossRed: lossRed,
+      cardBackground: cardBackground,
+   );
   }
 
   @override
@@ -92,6 +80,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
         other.secondaryTextColor,
         t,
       )!,
+      orange: Color.lerp(orange, other.orange, t)!,
       cryptoBTC: Color.lerp(cryptoBTC, other.cryptoBTC, t)!,
       cryptoETH: Color.lerp(cryptoETH, other.cryptoETH, t)!,
       cryptoLTC: Color.lerp(cryptoLTC, other.cryptoLTC, t)!,

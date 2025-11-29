@@ -67,7 +67,7 @@ class Utils {
   }
 
   static EdgeInsets get viewPadding {
-    return EdgeInsets.fromLTRB(20.width, 20.height, 20.width, 0);
+    return EdgeInsets.fromLTRB(16.width, 16.height, 16.width, 0);
   }
 
   static double keyboardHeight(
@@ -91,5 +91,5 @@ class Utils {
 
   static String getFileNameFromURL(String url, String symbol) =>
       url.substring(url.lastIndexOf(symbol) + 1);
-
+      
 }
