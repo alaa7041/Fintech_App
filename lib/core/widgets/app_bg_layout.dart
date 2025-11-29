@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
+
 import '../helpers/utils.dart';
 
 class AppBackgroundLayout extends StatelessWidget {
   final Widget? appBar;
   final Widget child;
 
-  const AppBackgroundLayout({
-    super.key,
-    this.appBar,
-    required this.child,
-  });
+  const AppBackgroundLayout({super.key, this.appBar, required this.child});
 
   @override
   Widget build(BuildContext context) {

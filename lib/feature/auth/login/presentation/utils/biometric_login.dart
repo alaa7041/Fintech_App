@@ -9,12 +9,12 @@ class _BiometricLogin extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         GestureDetector(
-          onTap: () {},
+          onTap: () => RouteManager.navigateTo(FingrprintScreen()),
           child: SvgPicture.asset(Utils.getImagesSVGPath("fingrprint")),
         ),
         Gap(60),
         GestureDetector(
-          onTap: () {},
+          onTap: () => RouteManager.navigateTo(FaceIdScreen()),
           child: SvgPicture.asset(Utils.getImagesSVGPath("face_id")),
         ),
       ],
