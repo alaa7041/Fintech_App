@@ -25,25 +25,11 @@ class FaceIdScreen extends StatelessWidget {
           children: [
             Spacer(),
             Expanded(
-              child: GestureDetector(
-                onTap: () {
-                  AppSuccessDialog.show(
-                    context: context,
-                    bodyPngImage: Utils.isDarkMode(context)
-                        ? "verify_face_dark"
-                        : "verify_face",
-                    contentText: "You’re verified",
-                    subtitle:
-                        "You have been verified your information completely. Let’s make transactions!",
-                    confirmationText: "Continue To Home",
-                  );
-                },
-                child: SvgPicture.asset(
-                  Utils.getImagesSVGPath(
-                    Utils.isDarkMode(context)
-                        ? "face_id_image_dark"
-                        : "face_id_image",
-                  ),
+              child: SvgPicture.asset(
+                Utils.getImagesSVGPath(
+                  Utils.isDarkMode(context)
+                      ? "face_id_image_dark"
+                      : "face_id_image",
                 ),
               ),
             ),
@@ -63,3 +49,15 @@ class FaceIdScreen extends StatelessWidget {
     );
   }
 }
+
+///TODO: Add success dialog
+//AppSuccessDialog.show(
+                  //   context: context,
+                  //   bodyPngImage: Utils.isDarkMode(context)
+                  //       ? "verify_face_dark"
+                  //       : "verify_face",
+                  //   contentText: "You’re verified",
+                  //   subtitle:
+                  //       "You have been verified your information completely. Let’s make transactions!",
+                  //   confirmationText: "Continue To Home",
+                  // );
