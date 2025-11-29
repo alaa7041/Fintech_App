@@ -12,9 +12,11 @@ import 'package:fintech_app/core/widgets/text_divider.dart';
 import 'package:fintech_app/feature/auth/login/presentation/face_id_screen.dart';
 import 'package:fintech_app/feature/auth/login/presentation/fingrprint_screen.dart';
 import 'package:fintech_app/feature/auth/login/presentation/utils/inline_text.dart';
+import 'package:fintech_app/feature/auth/register/presentation/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
+
 part 'utils/biometric_login.dart';
 part 'utils/login_buttons.dart';
 part 'utils/login_form.dart';
@@ -48,8 +50,13 @@ class LoginScreen extends StatelessWidget {
               TextDivider(text: "Or login with"),
               Gap(15),
               _BiometricLogin(),
-              Gap(15),
-              InlineText(title: "Don’t have an account?", subTitle: "Sign Up"),
+              Gap(20),
+              InlineText(
+                title: "Don’t have an account?",
+                subTitle: "Sign Up",
+                onTap: () => RouteManager.navigateTo(RegisterScreen()),
+              ),
+              Gap(Utils.bottomDevicePadding)
             ],
           ),
         ),

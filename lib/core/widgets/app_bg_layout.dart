@@ -27,12 +27,7 @@ class AppBackgroundLayout extends StatelessWidget {
         child: Column(
           children: [
             if (appBar != null) appBar!,
-            Expanded(
-              child: SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                child: child,
-              ),
-            ),
+            Expanded(child: child),
           ],
         ),
       ),
