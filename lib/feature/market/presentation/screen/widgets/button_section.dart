@@ -1,3 +1,5 @@
+import 'package:fintech_app/core/routing/route_manager.dart';
+import 'package:fintech_app/feature/buy_crypto/presentation/screens/buy_crypto_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/global/dimensions.dart';
@@ -30,7 +32,7 @@ class ButtonSection extends StatelessWidget {
         const SizedBox(width: 24),
         Expanded(
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () => RouteManager.navigateTo(BuyCryptoScreen()),
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xFF163E67),
               foregroundColor: Colors.white,
