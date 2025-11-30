@@ -133,7 +133,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
               profitLossPercentage: 5.07,
               iconColor: colors.cryptoLTC,
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 10),
 
             // Recent Transactions Section
             Text(

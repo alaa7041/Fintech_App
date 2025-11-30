@@ -19,7 +19,7 @@ class MonthSelector extends StatelessWidget {
     final colors = context.theme;
 
     return SizedBox(
-      height: 40,
+      height: 32,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: months.length,
@@ -29,13 +29,11 @@ class MonthSelector extends StatelessWidget {
           return GestureDetector(
             onTap: () => onMonthSelected(index),
             child: Container(
-              margin: const EdgeInsets.only(right: 16),
+              // margin: const EdgeInsets.only(right: 8),
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
               decoration: BoxDecoration(
-                color: isSelected
-                    ? colors.primary.withValues(alpha: 0.1)
-                    : Colors.transparent,
-                borderRadius: BorderRadius.circular(20),
+                color: isSelected ? colors.cardBackground : Colors.transparent,
+                borderRadius: BorderRadius.circular(8),
               ),
               child: Center(
                 child: Text(
@@ -44,7 +42,7 @@ class MonthSelector extends StatelessWidget {
                     color: isSelected
                         ? colors.primary
                         : colors.secondaryTextColor,
-                    fontWeight: isSelected ? FontWeight.w700 : FontWeight.w400,
+                    fontWeight: isSelected ? FontWeight.w500 : FontWeight.w400,
                     fontSize: 14,
                   ),
                 ),
