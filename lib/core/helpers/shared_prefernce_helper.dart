@@ -122,6 +122,29 @@ class SharedPrefHelper {
         await SharedPrefHelper.getBool(SharedPrefsKeys.hasSeenOnboarding);
     return hasSeenOnboarding ?? true;
   }
+
+  
+  /// Save biometrics enabled flag
+static Future<void> setBiometricsEnabled(bool enabled) async {
+  await setData(SharedPrefsKeys.biometricsEnabled, enabled);
+  debugPrint("Biometrics enabled set to: $enabled");
+}
+
+/// Get biometrics enabled flag
+static Future<bool> getBiometricsEnabled() async {
+  return await getBool(SharedPrefsKeys.biometricsEnabled);
+}
+
+/// Save email (optional)
+static Future<void> setSavedEmail(String email) async {
+  await setData(SharedPrefsKeys.savedEmail, email);
+}
+
+/// Get saved email
+static Future<String> getSavedEmail() async {
+  return await getString(SharedPrefsKeys.savedEmail);
+}
+
 }
 
 class SharedPrefsKeys {
@@ -129,4 +152,7 @@ class SharedPrefsKeys {
   static const String userToken = "userToken";
   static const String userRole = "userRole";
   static const String lang = "lang";
+  // New keys for biometrics
+  static const String biometricsEnabled = "biometricsEnabled";
+  static const String savedEmail = "savedEmail"; 
 }
