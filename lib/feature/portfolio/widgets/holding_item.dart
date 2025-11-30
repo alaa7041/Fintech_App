@@ -1,6 +1,10 @@
+import 'dart:math';
+
 import 'package:fintech_app/core/extensions/theme_extension.dart';
 import 'package:fintech_app/core/widgets/portfolio_card.dart';
 import 'package:flutter/material.dart';
+
+import '../../../core/extensions/coins_formatte.dart';
 
 /// Individual holding item card
 class HoldingItem extends StatelessWidget {
@@ -81,9 +85,11 @@ class HoldingItem extends StatelessWidget {
                 ),
                 const SizedBox(height: 2),
                 Text(
-                  '\$${valueUSD.toStringAsFixed(2)}',
+                  valueUSD.formatCoins(),
                   style: TextStyle(
-                    color: colors.secondaryTextColor,
+                    color: Random().nextBool()
+                        ? Color(0xffF56C2A)
+                        : colors.secondaryTextColor,
                     fontSize: 13,
                     fontWeight: FontWeight.w500,
                   ),
@@ -96,7 +102,7 @@ class HoldingItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                '${portfolioPercentage.toStringAsFixed(0)}%',
+                portfolioPercentage.formatCoins(),
                 style: TextStyle(
                   color: colors.primaryTextColor,
                   fontSize: 20,
