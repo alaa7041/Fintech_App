@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:fintech_app/core/extensions/theme_extension.dart';
 import 'package:fintech_app/core/widgets/portfolio_card.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +34,7 @@ class HoldingItem extends StatelessWidget {
 
     return PortfolioCard(
       margin: const EdgeInsets.only(bottom: 12),
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(12),
       child: Row(
         children: [
           // Crypto icon
@@ -87,9 +85,7 @@ class HoldingItem extends StatelessWidget {
                 Text(
                   valueUSD.formatCoins(),
                   style: TextStyle(
-                    color: Random().nextBool()
-                        ? Color(0xffF56C2A)
-                        : colors.secondaryTextColor,
+                    color: colors.secondaryTextColor,
                     fontSize: 13,
                     fontWeight: FontWeight.w500,
                   ),
