@@ -8,7 +8,7 @@ import 'package:fintech_app/core/widgets/app_button.dart';
 import 'package:fintech_app/core/widgets/app_text.dart';
 import 'package:fintech_app/core/widgets/app_text_form_field.dart';
 import 'package:fintech_app/core/widgets/auth_header.dart';
-import 'package:fintech_app/feature/auth/login/presentation/login_screen.dart';
+import 'package:fintech_app/feature/auth/login/presentation/screens/login_screen.dart';
 import 'package:fintech_app/feature/auth/login/presentation/utils/inline_text.dart';
 import 'package:fintech_app/feature/auth/register/presentation/register_fingrprint_screen.dart';
 import 'package:flutter/material.dart';

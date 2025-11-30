@@ -1,4 +1,4 @@
-part of '../login_screen.dart';
+part of '../screens/login_screen.dart';
 
 class _LoginButtons extends StatelessWidget {
   const _LoginButtons();

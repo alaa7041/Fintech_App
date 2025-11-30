@@ -9,8 +9,8 @@ import 'package:fintech_app/core/widgets/app_text.dart';
 import 'package:fintech_app/core/widgets/app_text_form_field.dart';
 import 'package:fintech_app/core/widgets/auth_header.dart';
 import 'package:fintech_app/core/widgets/text_divider.dart';
-import 'package:fintech_app/feature/auth/login/presentation/face_id_screen.dart';
-import 'package:fintech_app/feature/auth/login/presentation/fingrprint_screen.dart';
+import 'package:fintech_app/feature/auth/login/presentation/screens/face_id_screen.dart';
+import 'package:fintech_app/feature/auth/login/presentation/screens/fingrprint_screen.dart';
 import 'package:fintech_app/feature/auth/login/presentation/utils/inline_text.dart';
 import 'package:fintech_app/feature/auth/register/presentation/register_screen.dart';
 import 'package:fintech_app/feature/nav_bar/presentation/nav_bar.dart';
@@ -18,9 +18,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 
-part 'utils/biometric_login.dart';
-part 'utils/login_buttons.dart';
-part 'utils/login_form.dart';
+part '../utils/biometric_login.dart';
+part '../utils/login_buttons.dart';
+part '../utils/login_form.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

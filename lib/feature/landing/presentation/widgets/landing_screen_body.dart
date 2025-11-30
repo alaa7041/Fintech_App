@@ -5,7 +5,7 @@ import 'package:fintech_app/core/theming/app_colors_extension.dart';
 import 'package:fintech_app/core/theming/font_weights_helper.dart';
 import 'package:fintech_app/core/widgets/app_button.dart';
 import 'package:fintech_app/core/widgets/app_text.dart';
-import 'package:fintech_app/feature/auth/login/presentation/login_screen.dart';
+import 'package:fintech_app/feature/auth/login/presentation/screens/login_screen.dart';
 import 'package:fintech_app/feature/auth/register/presentation/register_screen.dart';
 import 'package:flutter/material.dart';
 

@@ -89,3 +89,22 @@ class RegisterFaceIdScreen extends StatelessWidget {
     );
   }
 }
+// BlocProvider(
+//   create: (_) => BiometricCubit(),
+//   child: BlocBuilder<BiometricCubit, BiometricState>(
+//     builder: (context, state) {
+//       return Column(
+//         children: [
+//           ElevatedButton(
+//             onPressed: () {
+//               context.read<BiometricCubit>().loginWithBiometrics();
+//             },
+//             child: Text("Login with Face ID / Fingerprint"),
+//           ),
+//           if (state is BiometricLoading) CircularProgressIndicator(),
+//           if (state is BiometricError) Text(state.message, style: TextStyle(color: Colors.red)),
+//         ],
+//       );
+//     },
+//   ),
+// )
