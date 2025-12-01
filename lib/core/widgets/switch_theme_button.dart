@@ -1,24 +1,27 @@
-import 'package:flutter/material.dart';
+import 'package:fintech_app/core/theming/app_colors.dart';
 import 'package:fintech_app/core/theming/theme_notifier.dart';
+import 'package:flutter/material.dart';
 
-class SwitchThemeButton extends StatelessWidget {
-  const SwitchThemeButton({super.key});
+class SwitchThemeToggle extends StatelessWidget {
+  const SwitchThemeToggle({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      icon: ValueListenableBuilder(
-        valueListenable: ThemeNotifier.themeMode,
-        builder: (_, mode, __) {
-          return Icon(
-            mode == ThemeMode.dark
-                ? Icons.dark_mode
-                : Icons.light_mode,
-          );
-        },
-      ),
-      onPressed: () {
-        ThemeNotifier.toggle();
+    return ValueListenableBuilder(
+      valueListenable: ThemeNotifier.themeMode,
+      builder: (_, mode, __) {
+        final isDark = mode == ThemeMode.dark;
+
+        return Switch(
+          activeThumbColor: context.colors.bgColor,
+          activeTrackColor: context.colors.primary,
+          inactiveThumbColor: context.colors.grey,
+          inactiveTrackColor: context.colors.bgColor,
+          value: isDark,
+          onChanged: (value) {
+            ThemeNotifier.toggle();
+          },
+        );
       },
     );
   }

@@ -1,6 +1,7 @@
 import 'package:fintech_app/feature/home/presentation/home_screen.dart';
 import 'package:fintech_app/feature/market/presentation/screen/market_screen.dart';
 import 'package:fintech_app/feature/portfolio/presentation/screens/portfolio_screen.dart';
+import 'package:fintech_app/feature/setting/presentation/views/setting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,7 +18,7 @@ class NavBarCubit extends Cubit<NavBarState> {
     HomeScreen(),
     MarketScreen(),
     PortfolioScreen(),
-    Scaffold(),
+    SettingScreen(),
   ];
 
   void changeView(int index) {
