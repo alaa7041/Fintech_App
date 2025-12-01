@@ -1,3 +1,4 @@
+import 'package:fintech_app/core/extensions/theme_extension.dart';
 import 'package:fintech_app/core/global/dimensions.dart';
 import 'package:fintech_app/core/helpers/utils.dart';
 import 'package:fintech_app/core/theming/app_colors_extension.dart';

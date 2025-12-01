@@ -1,4 +1,5 @@
 
+import 'package:fintech_app/core/extensions/theme_extension.dart';
 import 'package:fintech_app/core/theming/app_colors_extension.dart';
 import 'package:fintech_app/core/theming/font_weights_helper.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class CustomItem extends StatelessWidget {
   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
-   final colors = Theme.of(context).extension<AppColorsExtension>()!; 
+   final colors = context.theme; 
     return InkWell(
       onTap: onTap,
       child: Row(
@@ -22,7 +23,7 @@ class CustomItem extends StatelessWidget {
             width: 32,
             padding: EdgeInsets.all(7),
             decoration: BoxDecoration(
-              color: colors.primary,
+              color: colors.naviconColor,
               shape: BoxShape.circle,
             ),
             child: SvgPicture.asset(

@@ -14,11 +14,12 @@ class _MarketCard extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-      final colors = Theme.of(context).extension<AppColorsExtension>()!; 
+     // final colors = Theme.of(context).extension<AppColorsExtension>()!; 
+     final colors = context.theme;
     return Container(
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: colors.btnTextColor,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(

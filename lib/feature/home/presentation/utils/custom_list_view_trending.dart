@@ -5,7 +5,8 @@ class _CustomListViewTrending extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).extension<AppColorsExtension>()!;
+   // final colors = Theme.of(context).extension<AppColorsExtension>()!;
+   final colors = context.theme;
     return Column(
       children: [
         Row(
@@ -26,7 +27,7 @@ class _CustomListViewTrending extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeightsHelper.medium,
-                  color: colors.primaryTextColor,
+                  color: colors.naviconColor,
                 ),
               ),
             ),

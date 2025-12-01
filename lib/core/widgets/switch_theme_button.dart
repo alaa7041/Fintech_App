@@ -13,8 +13,8 @@ class SwitchThemeToggle extends StatelessWidget {
         final isDark = mode == ThemeMode.dark;
 
         return Switch(
-          activeThumbColor: context.colors.bgColor,
-          activeTrackColor: context.colors.primary,
+          activeThumbColor: context.colors.primary,
+          activeTrackColor: context.colors.naviconColor,
           inactiveThumbColor: context.colors.grey,
           inactiveTrackColor: context.colors.bgColor,
           value: isDark,

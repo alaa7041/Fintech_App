@@ -1,3 +1,4 @@
+import 'package:fintech_app/core/extensions/theme_extension.dart';
 import 'package:fintech_app/core/helpers/utils.dart';
 import 'package:fintech_app/core/theming/app_colors_extension.dart';
 import 'package:fintech_app/core/theming/font_weights_helper.dart';
@@ -34,7 +35,7 @@ class CustomGeneralListview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-           final colors = Theme.of(context).extension<AppColorsExtension>()!; 
+           final colors = context.theme; 
 
     return Column(
       children: [

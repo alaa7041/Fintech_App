@@ -49,7 +49,7 @@ class _CustomSettingsState extends State<CustomSettings> {
               width: 32,
               padding: EdgeInsets.all(7),
               decoration: BoxDecoration(
-                color: colors.primary,
+                color: colors.naviconColor,
                 shape: BoxShape.circle,
               ),
               child: SvgPicture.asset(Utils.getImagesSVGPath('moon')),

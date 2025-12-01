@@ -24,6 +24,7 @@ class _CustomGridView extends StatelessWidget {
         ),
         SizedBox(height: 20),
         GridView.count(
+          
           crossAxisCount: 2,
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),

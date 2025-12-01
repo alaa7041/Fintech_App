@@ -17,6 +17,7 @@ class BodySettingScreen extends StatelessWidget {
             Header(),
             SizedBox(height: 20,),
            CustomGeneralListview(),
+           SizedBox(height: 20,),
              CustomSettings(),
           ],
         ),
