@@ -19,9 +19,12 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
   final Color lossRed ;
   // Card background
   final Color cardBackground ;
+  final Color naviconColor ;
+
 
 
   const AppColorsExtension({
+    required this.naviconColor, 
     required this.primary,
     required this.bgColor,
     required this.textColor,
@@ -43,6 +46,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     Color? secondaryTextColor,
   }) {
     return AppColorsExtension(
+      naviconColor: naviconColor,
       primary: primary ?? this.primary,
       bgColor: bgColor ?? this.bgColor,
       textColor: textColor ?? this.textColor,
@@ -86,7 +90,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       cryptoLTC: Color.lerp(cryptoLTC, other.cryptoLTC, t)!,
       profitGreen: Color.lerp(profitGreen, other.profitGreen, t)!,
       lossRed: Color.lerp(lossRed, other.lossRed, t)!,
-      cardBackground: Color.lerp(cardBackground, other.cardBackground, t)!,
+      cardBackground: Color.lerp(cardBackground, other.cardBackground, t)!, naviconColor: other.naviconColor,
     );
   }
 }

@@ -23,7 +23,7 @@ class AppLightTheme {
     cryptoLTC: LightColors.cryptoLTC,
     profitGreen: LightColors.profitGreen,
     lossRed: LightColors.lossRed,
-    cardBackground: LightColors.cardBackground,
+    cardBackground: LightColors.cardBackground, naviconColor: LightColors.primary,
   ),
 ]
 

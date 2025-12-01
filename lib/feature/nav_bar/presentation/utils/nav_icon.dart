@@ -1,6 +1,5 @@
 part of '../nav_bar.dart';
 
-
 class _NavIcon extends StatelessWidget {
   final String assetPath;
   final int index;
@@ -13,13 +12,11 @@ class _NavIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).extension<AppColorsExtension>()!; 
+    final colors = Theme.of(context).extension<AppColorsExtension>()!;
     return SvgPicture.asset(
       Utils.getIconsSVGPath(assetPath),
       colorFilter: ColorFilter.mode(
-        selectedIndex == index
-            ? colors.primary
-            : colors.grey,
+        selectedIndex == index ? colors.naviconColor : colors.grey,
         BlendMode.srcIn,
       ),
       width: 24.radius,

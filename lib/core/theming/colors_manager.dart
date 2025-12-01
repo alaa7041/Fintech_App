@@ -29,6 +29,8 @@ class LightColors {
 }
 
 class DarkColors {
+  static const Color navIconColor = Color(0xff1D3A70);
+
   static const Color bgColor = Color(0xff121212); 
   static const Color primary = Colors.white; 
   static const Color grey = Color(0xff494D58);
