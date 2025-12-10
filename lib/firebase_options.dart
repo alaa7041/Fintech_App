@@ -64,6 +64,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '480708271782',
     projectId: 'fintech-app-e8e33',
     storageBucket: 'fintech-app-e8e33.firebasestorage.app',
+    androidClientId: '480708271782-4a07smfep8a0n4hisieouuhiil9q2966.apps.googleusercontent.com',
+    iosClientId: '480708271782-p1eq306p8jdfoi8k6bac85rl7o0u0r7j.apps.googleusercontent.com',
     iosBundleId: 'com.example.fintechApp',
   );
 
@@ -73,6 +75,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '480708271782',
     projectId: 'fintech-app-e8e33',
     storageBucket: 'fintech-app-e8e33.firebasestorage.app',
+    androidClientId: '480708271782-4a07smfep8a0n4hisieouuhiil9q2966.apps.googleusercontent.com',
+    iosClientId: '480708271782-p1eq306p8jdfoi8k6bac85rl7o0u0r7j.apps.googleusercontent.com',
     iosBundleId: 'com.example.fintechApp',
   );
 
@@ -85,4 +89,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'fintech-app-e8e33.firebasestorage.app',
     measurementId: 'G-NKB4EQM2FD',
   );
+
 }

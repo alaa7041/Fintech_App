@@ -1,9 +1,13 @@
 import 'package:fintech_app/core/global/dimensions.dart';
 import 'package:fintech_app/core/helpers/utils.dart';
+import 'package:fintech_app/core/routing/route_manager.dart';
 import 'package:fintech_app/core/theming/font_weights_helper.dart';
 import 'package:fintech_app/core/widgets/app_success_dialog.dart';
 import 'package:fintech_app/core/widgets/app_text.dart';
+import 'package:fintech_app/feature/auth/login/presentation/manager/login_cubit.dart';
+import 'package:fintech_app/feature/nav_bar/presentation/nav_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class FaceIdScreen extends StatelessWidget {
@@ -11,39 +15,68 @@ class FaceIdScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(Utils.getAssetPNGPath("face_id_bg")),
-            fit: BoxFit.cover,
+    return BlocProvider(
+      create: (context) => LoginCubit(),
+      child: Scaffold(
+        body: Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(Utils.getAssetPNGPath("face_id_bg")),
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-        child: Column(
-          children: [
-            Spacer(),
-            Expanded(
-              child: SvgPicture.asset(
-                Utils.getImagesSVGPath(
-                  Utils.isDarkMode(context)
-                      ? "face_id_image_dark"
-                      : "face_id_image",
-                ),
-              ),
-            ),
+          child: BlocConsumer<LoginCubit, LoginState>(
+            listener: (context, state) {
+              if (state is BiometricSuccess) {
+                AppSuccessDialog.show(
+                  context: context,
+                  contentText: "You're verified",
+                  subtitle:
+                      "You have been verified your information completely. Let's make transactions!",
+                  confirmationText: "Continue To Home",
+                  onConfirm: () => RouteManager.navigateTo(NavBar()),
+                );
+              } else if (state is BiometricError) {
+                ScaffoldMessenger.of(
+                  context,
+                ).showSnackBar(SnackBar(content: Text(state.message)));
+              }
+            },
+            builder: (context, state) {
+              final cubit = LoginCubit.get(context);
+              return Column(
+                children: [
+                  Spacer(),
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: state is! BiometricLoading
+                          ? () => cubit.authenticateFaceID()
+                          : null,
+                      child: SvgPicture.asset(
+                        Utils.getImagesSVGPath(
+                          Utils.isDarkMode(context)
+                              ? "face_id_image_dark"
+                              : "face_id_image",
+                        ),
+                      ),
+                    ),
+                  ),
 
-            AppText(
-              title: "Please wait until your scanning is complete",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18.font,
-                fontWeight: FontWeightsHelper.medium,
-              ),
-            ),
-            Spacer(),
-          ],
+                  AppText(
+                    title: "Please wait until your scanning is complete",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18.font,
+                      fontWeight: FontWeightsHelper.medium,
+                    ),
+                  ),
+                  Spacer(),
+                ],
+              );
+            },
+          ),
         ),
       ),
     );

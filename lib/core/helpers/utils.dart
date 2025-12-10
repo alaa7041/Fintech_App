@@ -94,5 +94,10 @@ class Utils {
 
   static String getFileNameFromURL(String url, String symbol) =>
       url.substring(url.lastIndexOf(symbol) + 1);
+
+        static void log(String text) {
+    final pattern = RegExp('.{1,800}');
+    pattern.allMatches(text).forEach((match) => print(match.group(0)));
+  }
       
 }
