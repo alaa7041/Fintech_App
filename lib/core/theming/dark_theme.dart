@@ -10,6 +10,7 @@ class AppDarkTheme {
 
     extensions: [
       AppColorsExtension(
+        naviconColor: DarkColors.navIconColor,
         primary: DarkColors.primary,
         bgColor: DarkColors.bgColor,
         textColor: DarkColors.textColor,

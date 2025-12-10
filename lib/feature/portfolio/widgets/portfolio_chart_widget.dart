@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:fintech_app/core/extensions/coins_formatte.dart';
 import 'package:fintech_app/core/extensions/theme_extension.dart';
 import 'package:flutter/material.dart';
 
@@ -54,10 +55,10 @@ class PortfolioChartWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '\$${totalValue.toStringAsFixed(0)}',
+                    totalValue.formatCoins(),
                     style: TextStyle(
                       color: colors.primaryTextColor,
-                      fontSize: 20,
+                      fontSize: 15,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -71,27 +72,29 @@ class PortfolioChartWidget extends StatelessWidget {
         Expanded(
           child: Column(
             children: [
-              ...assets.map(
+              ...assets.asMap().entries.map(
                 (asset) => Padding(
-                  padding: const EdgeInsets.only(bottom: 12),
+                  padding: EdgeInsets.only(
+                    bottom: asset.key == assets.length - 1 ? 0 : 8,
+                  ),
                   child: Row(
                     children: [
                       Container(
                         width: 12,
                         height: 12,
                         decoration: BoxDecoration(
-                          color: asset.color,
+                          color: asset.value.color,
                           shape: BoxShape.circle,
                         ),
                       ),
                       const SizedBox(width: 12),
                       Expanded(
                         child: Text(
-                          '\$${asset.value.toStringAsFixed(2)} ${asset.symbol}',
+                          '${asset.value.value.formatCoins()} ${asset.value.symbol}',
                           style: TextStyle(
-                            color: colors.secondaryTextColor,
+                            color: colors.primaryTextColor,
                             fontSize: 14,
-                            fontWeight: FontWeight.w400,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),

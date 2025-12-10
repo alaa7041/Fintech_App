@@ -1,4 +1,7 @@
+import 'package:fintech_app/core/extensions/coins_formatte.dart';
 import 'package:flutter/material.dart';
+
+import '../../../core/helpers/utils.dart';
 
 /// Total value card with gradient background
 class TotalValueCard extends StatelessWidget {
@@ -18,12 +21,17 @@ class TotalValueCard extends StatelessWidget {
     final isPositive = changePercentage >= 0;
 
     return Container(
-      padding: const EdgeInsets.all(24),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: const [Color(0xff2D5189), Color(0xff1D3A70)],
+        ),
+        image: DecorationImage(
+          image: AssetImage(Utils.getAssetPNGPath("home_banner")),
+          fit: BoxFit.cover,
+          alignment: Alignment.topCenter,
         ),
         borderRadius: BorderRadius.circular(16),
       ),
@@ -38,12 +46,12 @@ class TotalValueCard extends StatelessWidget {
               fontWeight: FontWeight.w400,
             ),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 8),
           Text(
-            '\$${totalValue.toStringAsFixed(2)}',
+            totalValue.formatCoins(),
             style: const TextStyle(
               color: Colors.white,
-              fontSize: 32,
+              fontSize: 28,
               fontWeight: FontWeight.w700,
             ),
           ),

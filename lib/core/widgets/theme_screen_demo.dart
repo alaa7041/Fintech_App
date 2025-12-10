@@ -13,7 +13,7 @@ class ThemeScreenDemo extends StatelessWidget {
     return Stack(
       children: [
         child,
-        Positioned(top: 40, right: 16, child: SwitchThemeButton()),
+        Positioned(top: 40, right: 16, child: SwitchThemeToggle()),
       ],
     );
   }
