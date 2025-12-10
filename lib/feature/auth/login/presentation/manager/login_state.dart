@@ -7,18 +7,23 @@ abstract class LoginState extends Equatable {
   List<Object> get props => [];
 }
 
-class BiometricInitial extends LoginState {}
+class LoginInitial extends LoginState {}
+
+class LoginError extends LoginState {
+
+  const LoginError();
+}
+
+class LoginLoading extends LoginState {}
+
+class LoginSuccess extends LoginState {}
 
 class BiometricLoading extends LoginState {}
 
 class BiometricSuccess extends LoginState {}
 
 class BiometricError extends LoginState {
-  final String message;
-  const BiometricError(this.message);
-
-  @override
-  List<Object> get props => [message];
+  const BiometricError();
 }
 
 class GoogleLoginSuccess extends LoginState {
@@ -34,22 +39,15 @@ class GoogleLoginCanceled extends LoginState {
   const GoogleLoginCanceled();
 }
 
-class LoginError extends LoginState {
-  final String message;
-  const LoginError(this.message);
-}
-class LoginLoading extends LoginState {}
-
-class LoginSuccess extends LoginState {}
 class AppleAuthSuccess extends LoginState {
   final String uid;
-
   const AppleAuthSuccess(this.uid);
 }
+
 class AppleAuthLoading extends LoginState {}
 
 class AppleAuthFailure extends LoginState {
-  final String error;
 
-  const AppleAuthFailure(this.error);
+
+  const AppleAuthFailure();
 }

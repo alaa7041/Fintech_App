@@ -27,23 +27,8 @@ class FaceIdScreen extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          child: BlocConsumer<LoginCubit, LoginState>(
-            listener: (context, state) {
-              if (state is BiometricSuccess) {
-                AppSuccessDialog.show(
-                  context: context,
-                  contentText: "You're verified",
-                  subtitle:
-                      "You have been verified your information completely. Let's make transactions!",
-                  confirmationText: "Continue To Home",
-                  onConfirm: () => RouteManager.navigateTo(NavBar()),
-                );
-              } else if (state is BiometricError) {
-                ScaffoldMessenger.of(
-                  context,
-                ).showSnackBar(SnackBar(content: Text(state.message)));
-              }
-            },
+          child: BlocBuilder<LoginCubit, LoginState>(
+            
             builder: (context, state) {
               final cubit = LoginCubit.get(context);
               return Column(
@@ -52,7 +37,7 @@ class FaceIdScreen extends StatelessWidget {
                   Expanded(
                     child: GestureDetector(
                       onTap: state is! BiometricLoading
-                          ? () => cubit.authenticateFaceID()
+                          ? () => cubit.authenticateFaceID(context)
                           : null,
                       child: SvgPicture.asset(
                         Utils.getImagesSVGPath(

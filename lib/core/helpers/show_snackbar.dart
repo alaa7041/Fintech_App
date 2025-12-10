@@ -1,22 +1,24 @@
+import 'package:fintech_app/core/routing/route_manager.dart';
+import 'package:fintech_app/core/widgets/app_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void showSnackbar(
-  BuildContext context,
+void showSnackBar(
   String message, {
   Color? color,
+  int seconds = 3,
   bool isError = false,
 }) {
-  ScaffoldMessenger.of(context).showSnackBar(
+  ScaffoldMessenger.of(RouteManager.currentContext).showSnackBar(
     SnackBar(
-      backgroundColor: color ?? (isError ? Colors.red : Colors.green),
-      content: Text(
-        message,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
-        ),
+      duration: Duration(seconds: seconds),
+      content: AppText(
+        title: message,
+        color: Colors.white,
+        fontSize: 14.sp,
+        fontWeight: FontWeight.bold,
       ),
+      backgroundColor: isError ? Colors.red : color ?? Colors.green,
     ),
   );
 }

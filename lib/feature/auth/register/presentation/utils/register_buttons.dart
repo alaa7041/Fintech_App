@@ -6,13 +6,8 @@ class _RegisterButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = RegisterCubit.get(context);
-    return BlocConsumer(
+    return BlocBuilder(
       bloc: cubit,
-      listener: (context, state) {
-        if (state is RegisterSuccess) {
-          RouteManager.navigateTo(NavBar());
-        }
-      },
       builder: (context, state) {
         return Column(
           children: [

@@ -1,6 +1,5 @@
-import 'dart:io' show Platform;
-
 import 'package:equatable/equatable.dart';
+import 'package:fintech_app/core/helpers/show_snackbar.dart';
 import 'package:fintech_app/core/routing/route_manager.dart';
 import 'package:fintech_app/core/social_login_utils/social_login_utils.dart';
 import 'package:fintech_app/feature/nav_bar/presentation/nav_bar.dart';
@@ -10,10 +9,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
+import '../../../../../core/widgets/app_success_dialog.dart';
+
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit() : super(BiometricInitial());
+  LoginCubit() : super(LoginInitial());
 
   final _auth = LocalAuthentication();
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -22,10 +23,11 @@ class LoginCubit extends Cubit<LoginState> {
 
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
+  bool autoValidate = false;
 
   Future<void> signInWithApple() async {
-    emit(AppleAuthLoading());
+    _emit(AppleAuthLoading());
     try {
       final credential = await SignInWithApple.getAppleIDCredential(
         scopes: [
@@ -43,15 +45,18 @@ class LoginCubit extends Cubit<LoginState> {
         oauthCredential,
       );
 
-      emit(AppleAuthSuccess(userCredential.user!.uid));
+      _emit(AppleAuthSuccess(userCredential.user!.uid));
     } on SignInWithAppleAuthorizationException catch (e) {
       if (e.code == AuthorizationErrorCode.canceled) {
-        emit(AppleAuthFailure("Login canceled by user."));
+        _emit(AppleAuthFailure());
+        showSnackBar("Login canceled by user", isError: true);
       } else {
-        emit(AppleAuthFailure(e.toString()));
+        _emit(AppleAuthFailure());
+        showSnackBar("Login canceled by user", isError: true);
       }
     } catch (e) {
-      emit(AppleAuthFailure(e.toString()));
+      _emit(AppleAuthFailure());
+      showSnackBar("Login canceled by user", isError: true);
     }
   }
 
@@ -59,25 +64,29 @@ class LoginCubit extends Cubit<LoginState> {
     try {
       final socialUtils = SocialLoginUtils.instance;
 
-      emit(GoogleLoginLoading());
+      _emit(GoogleLoginLoading());
 
       final result = await socialUtils.loginWithGoogle();
 
       if (result == null) {
-        emit(GoogleLoginCanceled());
+        _emit(GoogleLoginCanceled());
         return;
       }
 
-      emit(GoogleLoginSuccess(result));
-      RouteManager.navigateTo(NavBar());
+      _emit(GoogleLoginSuccess(result));
+      navigateToHome();
     } catch (e) {
-      emit(GoogleLoginCanceled());
+      _emit(GoogleLoginCanceled());
     }
   }
 
   Future<void> loginWithPhonePassword() async {
-    emit(LoginLoading());
-    if (!formKey.currentState!.validate()) return;
+    if (!formKey.currentState!.validate()) {
+      autoValidate = true;
+      _emit(LoginInitial());
+      return;
+    }
+    _emit(LoginLoading());
 
     try {
       final fakeEmail = "${phoneController.text.trim()}@myapp.com";
@@ -88,27 +97,19 @@ class LoginCubit extends Cubit<LoginState> {
             password: passwordController.text.trim(),
           );
 
-      emit(LoginSuccess());
-      RouteManager.navigateTo(NavBar());
-      print("✅ Logged in Successfully: ${userCredential.user?.uid}");
+      _emit(LoginSuccess());
+
+      navigateToHome();
     } on FirebaseAuthException catch (e) {
-      emit(LoginError(e.message ?? "Login failed"));
-      print("❌ Login Error: ${e.message}");
+      _emit(LoginError());
+      showSnackBar(e.message ?? "Login failed", isError: true);
     }
   }
 
-  Future<void> authenticateFingerprint() async {
-    emit(BiometricLoading());
-
+  Future<void> authenticateFingerprint(BuildContext context) async {
+    _emit(BiometricLoading());
     try {
-      // iOS simulator = Face ID only, redirect to Face ID screen
-      if (Platform.isIOS) {
-        emit(BiometricError('iOS uses Face ID only. Use Face ID screen.'));
-        return;
-      }
-
       final available = await _auth.getAvailableBiometrics();
-      print('🔍 Fingerprint available: $available');
 
       bool hasFingerprint = available.any(
         (type) =>
@@ -116,42 +117,78 @@ class LoginCubit extends Cubit<LoginState> {
       );
 
       if (!hasFingerprint) {
-        emit(BiometricError('No fingerprint sensor available'));
+        _emit(BiometricError());
+        showSnackBar('No fingerprint sensor available', isError: true);
         return;
       }
 
       final authenticated = await _auth.authenticate(
         localizedReason: 'Scan your fingerprint',
       );
-      _handleAuthResult(authenticated);
+      _handleAuthResult(authenticated, context);
     } catch (e) {
-      emit(BiometricError('Fingerprint error: $e'));
+      _emit(BiometricError());
+      showSnackBar(e.toString(), isError: true);
     }
   }
 
-  Future<void> authenticateFaceID() async {
-    emit(BiometricLoading());
+  Future<void> authenticateFaceID(BuildContext context) async {
+    _emit(BiometricLoading());
     try {
       final available = await _auth.getAvailableBiometrics();
       if (!available.contains(BiometricType.face)) {
-        emit(BiometricError('Face ID not available'));
+        _emit(BiometricError());
+        showSnackBar('Face ID not available', isError: true);
+
         return;
       }
 
       final authenticated = await _auth.authenticate(
         localizedReason: 'Scan your face',
       );
-      _handleAuthResult(authenticated);
+      _handleAuthResult(authenticated, context);
     } catch (e) {
-      emit(BiometricError('Face ID error: ${e.toString()}'));
+      _emit(BiometricError());
+      showSnackBar(e.toString(), isError: true);
     }
   }
 
-  void _handleAuthResult(bool authenticated) {
+  void _handleAuthResult(bool authenticated, BuildContext context) {
     if (authenticated) {
-      emit(BiometricSuccess());
+      _emit(BiometricSuccess());
+      AppSuccessDialog.show(
+        context: context,
+        contentText: "You're verified",
+        subtitle:
+            "You have been verified your information completely. Let's make transactions!",
+        confirmationText: "Continue To Home",
+        onConfirm: () => navigateToHome(),
+      );
     } else {
-      emit(BiometricError('Authentication failed'));
+      _emit(BiometricError());
+      showSnackBar('Authentication failed', isError: true);
+    }
+  }
+
+  void navigateToHome() {
+    RouteManager.navigateAndPopAll(NavBar());
+  }
+
+  bool get isStateLoading {
+    return state is LoginLoading;
+  }
+
+  bool get isGoogleLoading {
+    return state is GoogleLoginLoading;
+  }
+
+  bool get isAppleLoading {
+    return state is AppleAuthLoading;
+  }
+
+  _emit(LoginState state) {
+    if (!isClosed) {
+      emit(state);
     }
   }
 }

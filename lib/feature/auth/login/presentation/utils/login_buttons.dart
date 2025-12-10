@@ -9,19 +9,10 @@ class _LoginButtons extends StatelessWidget {
     return BlocConsumer(
       bloc: cubit,
       listener: (context, state) {
-        if (state is GoogleLoginSuccess || state is LoginSuccess) {
+        if (state is GoogleLoginSuccess ||
+            state is LoginSuccess ||
+            state is AppleAuthSuccess) {
           RouteManager.navigateTo(NavBar());
-        } else if (state is GoogleLoginCanceled) {
-          AppText(title: 'error');
-        }
-        if (state is AppleAuthSuccess) {
-          // Navigate to home
-          print("Signed in with UID: ${state.uid}");
-          RouteManager.navigateTo(NavBar());
-        } else if (state is AppleAuthFailure) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text(state.error)));
         }
       },
       builder: (context, state) {
@@ -29,14 +20,17 @@ class _LoginButtons extends StatelessWidget {
           children: [
             AppButton(
               text: "Login",
+              isLoading: state is LoginLoading,
               onPressed: () => cubit.loginWithPhonePassword(),
             ),
             Gap(10),
             AppButton(
               text: "",
-
+              isLoading: state is GoogleLoginLoading,
+              loaderColor: context.colors.primary,
               onPressed: () => cubit.loginWithGoogle(),
               color: Colors.transparent,
+
               boxBorder: Border.all(
                 color: context.colors.primary,
                 width: 1.width,
@@ -67,7 +61,9 @@ class _LoginButtons extends StatelessWidget {
             if (Platform.isIOS) ...[
               Gap(10),
               AppButton(
+                isLoading: state is AppleAuthLoading,
                 text: "",
+                loaderColor: context.colors.primary,
                 onPressed: () {
                   cubit.signInWithApple();
                 },
