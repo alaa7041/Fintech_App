@@ -21,10 +21,10 @@ class _TrendingCoinCard extends StatelessWidget {
 
     return Container(
       width: 192,
-      padding: EdgeInsets.all(16),
+      padding: EdgeInsets.all(12),
       decoration: BoxDecoration(
-         color: colors.btnTextColor,
-         borderRadius: BorderRadius.circular(16),
+        color: colors.btnTextColor,
+        borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.05),
