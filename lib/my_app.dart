@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         builder: (_, child) {
           return ValueListenableBuilder(
             valueListenable: ThemeNotifier.themeMode,
+
             builder: (BuildContext context, value, Widget? child) {
               return MaterialApp(
                 // ignore: deprecated_member_use

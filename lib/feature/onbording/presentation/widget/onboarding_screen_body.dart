@@ -1,10 +1,12 @@
 import 'package:fintech_app/core/global/dimensions.dart';
-import 'package:fintech_app/core/helpers/app_media.dart';
+import 'package:fintech_app/core/helpers/utils.dart';
 import 'package:fintech_app/feature/onbording/presentation/widget/onboarding_dots_indicator_widget.dart';
 import 'package:fintech_app/feature/onbording/presentation/widget/onboarding_navigation_button_widget.dart';
 import 'package:fintech_app/feature/onbording/presentation/widget/onboarding_page_view_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gap/gap.dart';
+
 import '../onbording_cubit/onbording_cubit/onbording_cubit.dart';
 
 class OnboardingScreenBody extends StatefulWidget {
@@ -49,15 +51,14 @@ class _OnboardingScreenBodyState extends State<OnboardingScreenBody>
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   OnboardingDotsIndicatorWidget(currentIndex: currentIndex),
-                  Spacer(),
+                  Gap(10),
                   OnboardingNavigationButtonWidget(
                     currentIndex: currentIndex,
                     pageController: _pageController,
                   ),
-                  const SizedBox(height: 40),
                 ],
               ),
-              SizedBox(height: context.height / 7),
+              Gap(Utils.bottomDevicePadding + 100),
             ],
           ),
         );

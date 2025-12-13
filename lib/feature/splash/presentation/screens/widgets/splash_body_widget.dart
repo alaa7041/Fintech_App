@@ -1,8 +1,8 @@
+import 'package:fintech_app/core/global/dimensions.dart';
 import 'package:fintech_app/core/helpers/utils.dart';
 import 'package:fintech_app/core/routing/route_manager.dart';
 import 'package:fintech_app/feature/onbording/presentation/screens/onboarding_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class SplashBodyWidget extends StatefulWidget {
   const SplashBodyWidget({super.key});
@@ -31,44 +31,16 @@ class _SplashBodyWidgetState extends State<SplashBodyWidget>
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    return Center(
-      child: SizedBox(
-        width: size.width,
-        height: size.height,
-        child: Stack(
-          clipBehavior: Clip.none,
-          alignment: Alignment.center,
-          children: [
-            Positioned(
-              top: size.height * 0.15,
-              bottom: size.height * 0.15,
-              child: Container(
-                width: size.width * 2,
-                height: size.width * 2,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Color(0xffedeeef),
-                ),
-              ),
-            ),
-            Container(
-              width: size.width * 0.9,
-              height: size.width * 0.9,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Color(0xffdddfe1),
-              ),
-            ),
-            FadeTransition(
-              opacity: fadeAnimation,
-              child: SvgPicture.asset(
-                Utils.getImagesSVGPath('logo'),
-                width: 140,
-                height: 140,
-              ),
-            ),
-          ],
+    return Padding(
+      padding: EdgeInsets.all(120.height),
+      child: Center(
+        child: FadeTransition(
+          opacity: fadeAnimation,
+          child: Image.asset(
+            Utils.isDarkMode(context)
+                ? Utils.getIconsPNGPath("app_logo_dark")
+                : Utils.getIconsPNGPath("app_logo"),
+          ),
         ),
       ),
     );

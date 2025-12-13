@@ -1,6 +1,7 @@
 import 'package:fintech_app/core/global/dimensions.dart';
 import 'package:fintech_app/core/helpers/utils.dart';
 import 'package:fintech_app/core/routing/route_manager.dart';
+import 'package:fintech_app/core/theming/app_colors.dart';
 import 'package:fintech_app/core/theming/app_colors_extension.dart';
 import 'package:fintech_app/core/theming/font_weights_helper.dart';
 import 'package:fintech_app/core/widgets/app_button.dart';
@@ -17,7 +18,7 @@ class LandingScreenBody extends StatelessWidget {
     final colors = Theme.of(context).extension<AppColorsExtension>()!;
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.width, vertical: 50.height),
+      padding: Utils.viewPadding,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -28,6 +29,7 @@ class LandingScreenBody extends StatelessWidget {
             title: "Get Started Now!",
             fontSize: 30,
             fontWeight: FontWeightsHelper.bold,
+            color: context.colors.primaryTextColor,
           ),
           SizedBox(height: 60.height),
           AppButton(

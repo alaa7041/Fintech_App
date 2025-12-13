@@ -23,8 +23,6 @@ void main() async {
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.dark,
       statusBarBrightness: Brightness.light,
-
-
     ),
   );
   Bloc.observer = MyBlocObserver();
