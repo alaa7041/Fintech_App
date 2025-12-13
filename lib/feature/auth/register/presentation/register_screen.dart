@@ -9,12 +9,10 @@ import 'package:fintech_app/core/widgets/auth_header.dart';
 import 'package:fintech_app/feature/auth/login/presentation/screens/login_screen.dart';
 import 'package:fintech_app/feature/auth/login/presentation/utils/inline_text.dart';
 import 'package:fintech_app/feature/auth/register/manager/register_cubit.dart';
+import 'package:fintech_app/feature/auth/register/manager/register_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-
-import '../../../nav_bar/presentation/nav_bar.dart';
-import '../manager/register_state.dart';
 
 part 'utils/register_buttons.dart';
 part 'utils/register_form.dart';

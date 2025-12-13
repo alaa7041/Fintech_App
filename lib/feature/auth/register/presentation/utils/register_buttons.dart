@@ -13,6 +13,7 @@ class _RegisterButtons extends StatelessWidget {
           children: [
             AppButton(
               text: "Register",
+              isLoading: state is RegisterLoading,
               onPressed: () {
                 cubit.registerWithPhonePassword();
               },
